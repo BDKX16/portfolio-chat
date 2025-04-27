@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 99%;
+    --foreground: 210 70% 33%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 70% 33%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 70% 33%;
+
+    --primary: 210 70% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 45% 52%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: #333333;
+    --muted-foreground: #c9c9c9;
+
+    --accent: 201 71% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 33% 90%;
+    --input: 210 33% 90%;
+    --ring: 210 70% 33%;
+
+    --radius: 1rem;
+
+    /* Hexagon colors from the blue palette */
+    --hexagon-color-0: #1a4c8e;
+    --hexagon-color-1: #2a699d;
+    --hexagon-color-2: #4a8abf;
+    --hexagon-color-3: #68b6e3;
+    --hexagon-color-4: #a1d3f7;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #1a4c8e 0%, #4a8abf 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #4a8abf 0%, #68b6e3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.hexagon-shape {
+  transition: all 0.3s ease;
+}
+
+.hexagon-shape:hover {
+  transform: scale(1.05);
+}
+
+/* 3D Transform Styles */
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+/* Timeline Styles */
+.timeline-dot {
+  box-shadow: 0 0 0 4px rgba(26, 76, 142, 0.2);
+}
