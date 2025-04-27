@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  nextjs:
+    container_name: portfolio-nextjs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3007:3000" # Exponer el puerto 3007 al host
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_N8N_WEBHOOK=${NEXT_PUBLIC_N8N_WEBHOOK}
+      # Importante para que Next.js escuche en todas las interfaces
+      - HOSTNAME=0.0.0.0
