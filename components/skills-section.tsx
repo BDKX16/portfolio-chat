@@ -28,11 +28,11 @@ const skillCategories = [
       </svg>
     ),
     skills: [
-      { name: "React", level: 90 },
-      { name: "Next.js", level: 85 },
-      { name: "TypeScript", level: 80 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "HTML/CSS", level: 90 },
+      { name: "React", level: 95 },
+      { name: "Tailwind CSS", level: 90 },
+      { name: "Next.js", level: 75 },
+      { name: "React Native", level: 70 },
+      { name: "HTML/CSS", level: 100 },
     ],
   },
   {
@@ -55,11 +55,11 @@ const skillCategories = [
       </svg>
     ),
     skills: [
+      { name: ".NET", level: 90 },
       { name: "Node.js", level: 85 },
-      { name: "Express", level: 80 },
+      { name: "Express", level: 85 },
       { name: "MongoDB", level: 75 },
-      { name: "PostgreSQL", level: 70 },
-      { name: "GraphQL", level: 65 },
+      { name: "SQL Server", level: 85 },
     ],
   },
   {
@@ -81,10 +81,10 @@ const skillCategories = [
     ),
     skills: [
       { name: "Git", level: 90 },
-      { name: "Docker", level: 75 },
+      { name: "Docker", level: 95 },
       { name: "CI/CD", level: 70 },
-      { name: "AWS", level: 65 },
-      { name: "Figma", level: 80 },
+      { name: "Hosting", level: 95 },
+      { name: "Figma", level: 65 },
     ],
   },
 ];
