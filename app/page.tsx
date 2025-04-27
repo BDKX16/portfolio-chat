@@ -163,16 +163,19 @@ export default function Home() {
             <GlowCard>
               <div className="bg-card p-8 rounded-xl max-w-3xl text-card-foreground">
                 <p className="mb-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie
-                  vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh
-                  porttitor. Ut in nulla enim.
+                  I´m a full stack developer with over 3 years of experience,
+                  specializint in .NET and frontend technologies such as React
+                  and Vue. I have a passion for creating efficient and scalable
+                  applications that solve real-world problems, always aiming to
+                  enhance user experience through intuitive interfaces and
+                  innovative features.
                 </p>
                 <p>
-                  Suspendisse in justo eu magna luctus suscipit. Sed lectus.
-                  Integer euismod lacus luctus magna. Quisque cursus, metus
-                  vitae pharetra auctor, sem massa mattis sem, at interdum magna
-                  augue eget diam.
+                  I have experience in clean architecture, microservices, and
+                  agile methodologies, which allows me to adapt to different
+                  environments and work effectively in teams. I am always eager
+                  to learn and grow, and I am excited to take on new challenges
+                  that push my skills to the next level.
                 </p>
               </div>
             </GlowCard>
