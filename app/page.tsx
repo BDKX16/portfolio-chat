@@ -13,24 +13,35 @@ import Head from "next/head";
 export default function Home() {
   return (
     <>
-      <main className="min-h-screen bg-background" itemScope itemType="http://schema.org/ProfilePage">
+      <main
+        className="min-h-screen bg-background"
+        itemScope
+        itemType="http://schema.org/ProfilePage"
+      >
         {/* Responsive Navbar */}
         <Navbar />
 
         {/* Hero Section with Gradient Background */}
-        <section className="text-accent py-20">
+        <section id="chat" className="text-accent py-20">
           <div className="container">
             <div className="max-w-3xl mx-auto text-center">
               <RevealAnimation direction="up" delay={0.1}>
-                <h1 className="text-4xl font-bold mb-6 md:text-5xl lg:text-6xl" itemProp="headline">
-                  Hi, I'm <span className="text-primary" itemProp="name">Xavier Galarreta</span>
+                <h1
+                  className="text-4xl font-bold mb-6 md:text-5xl lg:text-6xl"
+                  itemProp="headline"
+                >
+                  Hi, I'm{" "}
+                  <span className="text-primary" itemProp="name">
+                    Xavier Galarreta
+                  </span>
                 </h1>
               </RevealAnimation>
 
               <RevealAnimation direction="up" delay={0.2}>
-                <p className="text-xl mb-8" itemProp="description">
-                  Full Stack Developer especializado en React, .NET y Vue | Clean Architecture | Microservicios
-                </p>
+                <h1 className="text-xl mb-8 " itemProp="description">
+                  Full Stack Developer specialized en React, .NET y Architecture
+                  Design
+                </h1>
               </RevealAnimation>
 
               <RevealAnimation direction="up" delay={0.3}>
@@ -66,17 +77,23 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-20" itemScope itemType="http://schema.org/CollectionPage">
+        <section
+          id="projects"
+          className="py-20"
+          itemScope
+          itemType="http://schema.org/CollectionPage"
+        >
           <div className="container">
             <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center mb-16">
               <RevealAnimation direction="up">
                 <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl text-primary">
-                  Mis Proyectos
+                  My Projects
                 </h2>
               </RevealAnimation>
               <RevealAnimation direction="up" delay={0.1}>
                 <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-                  Portfolio de trabajo y proyectos personales en React, .NET, Vue y otras tecnologías
+                  Portfolio of work and personal projects in React, .NET, Vue,
+                  and other technologies
                 </p>
               </RevealAnimation>
             </div>
@@ -85,17 +102,29 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-20 bg-card" itemScope itemType="http://schema.org/ItemList">
+        <section
+          id="skills"
+          className="py-20 bg-card"
+          itemScope
+          itemType="http://schema.org/ItemList"
+        >
           <div className="container">
             <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center mb-16">
               <RevealAnimation direction="up">
-                <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl text-primary" itemProp="name">
-                  Mis Habilidades Técnicas
+                <h2
+                  className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl text-primary"
+                  itemProp="name"
+                >
+                  My Skills
                 </h2>
               </RevealAnimation>
               <RevealAnimation direction="up" delay={0.1}>
-                <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl" itemProp="description">
-                  Tecnologías que domino: React, Vue, .NET, JavaScript, TypeScript, C#, y más
+                <p
+                  className="max-w-[750px] text-lg text-muted-foreground sm:text-xl"
+                  itemProp="description"
+                >
+                  Technologies I exel at: React, Vue, .NET, JavaScript,
+                  TypeScript, C#, and more
                 </p>
               </RevealAnimation>
             </div>
@@ -148,18 +177,18 @@ export default function Home() {
                             I´m a full stack developer with over 3 years of
                             experience, specializing in .NET and frontend
                             technologies such as React and Vue. I have a passion
-                            for creating efficient and scalable applications that
-                            solve real-world problems, always aiming to enhance
-                            user experience through intuitive interfaces and
-                            innovative features.
+                            for creating efficient and scalable applications
+                            that solve real-world problems, always aiming to
+                            enhance user experience through intuitive interfaces
+                            and innovative features.
                           </p>
                           <p>
                             I have experience in clean architecture,
                             microservices, and agile methodologies, which allows
                             me to adapt to different environments and work
                             effectively in teams. I am always eager to learn and
-                            grow, and I am excited to take on new challenges that
-                            push my skills to the next level.
+                            grow, and I am excited to take on new challenges
+                            that push my skills to the next level.
                           </p>
                         </div>
                         <div className="flex-1 max-w-xs mx-auto">
@@ -194,7 +223,8 @@ export default function Home() {
               </RevealAnimation>
               <RevealAnimation direction="up" delay={0.1}>
                 <p className="max-w-[750px] text-lg opacity-90">
-                  ¿Interesado en trabajar conmigo? Contáctame para desarrollar tu próximo proyecto
+                  ¿Interesado en trabajar conmigo? Contáctame para desarrollar
+                  tu próximo proyecto
                 </p>
               </RevealAnimation>
             </div>
@@ -240,6 +270,7 @@ export default function Home() {
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            className="text-primary-foreground"
                           >
                             <rect
                               width="20"
@@ -284,7 +315,8 @@ export default function Home() {
         <footer className="bg-primary text-primary-foreground py-8">
           <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-center text-sm leading-loose md:text-left">
-              © {new Date().getFullYear()} Xavier Galarreta | Full Stack Developer | React, .NET, Vue
+              © {new Date().getFullYear()} Xavier Galarreta | Full Stack
+              Developer | React, .NET, Vue
             </p>
             <div className="flex space-x-4">
               <a
