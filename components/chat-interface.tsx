@@ -255,7 +255,6 @@ export default function ChatInterface() {
 
             setMessages((prev) => [...prev, assistantMessage]);
           } else {
-            console.log(response);
             throw new Error("Invalid webhook response format");
           }
         } catch (error) {
