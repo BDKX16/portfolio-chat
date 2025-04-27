@@ -155,7 +155,7 @@ export default function Home() {
           </RevealAnimation>
           <RevealAnimation direction="up" delay={0.1}>
             <p className="max-w-[750px] text-lg text-muted-foreground mb-8">
-              Add your personal information and background here
+              Personal background, interests, and hobbies
             </p>
           </RevealAnimation>
 
