@@ -13,26 +13,45 @@ const projects = [
     id: 1,
     title: "Confi Plant",
     description:
-      "IoT software for greenhouse automation. Implemented MQTT for efficient device communication with a cloud platform featuring database integration and multiple frontends.",
+      "IoT software for greenhouse automation, adaptable for use in various industrial fields. Implemented MQTT for efficient device communication with a cloud platform featuring database integration and multiple frontends.",
     image: "/WebDashTemp.jpg",
     period: "05/2022 - Present",
     tags: [
       "Node.js",
       "React",
-      "React Native",
       "MQTT",
       "WebSockets",
       "MongoDB",
       "Docker",
       "SSL",
+      "shadcn/ui",
     ],
     demoUrl: "https://dev.confiplant.cloud", // Replace with actual URL
     githubUrl: "https://github.com/BDKX16/react-admin-2", // Replace with actual URL
-    playStoreUrl:
-      "https://play.google.com/store/apps/details?id=com.xavigmp.confiplant", // Replace with actual URL
   },
   {
     id: 2,
+    title: "IoT Control Mobile App",
+    description:
+      "Professional mobile application for IoT device management and monitoring through WebSockets. Leverages the architecture of the Confi Plant web platform, featuring customizable themes, real-time device control, and an integrated calendar for scheduling automation tasks.",
+    image: "/ConfiApp.jpg", // Replace with actual image when available
+    period: "03/2023 - Present",
+    tags: [
+      "React Native",
+      "WebSockets",
+      "Mobile Development",
+      "IoT",
+      "Custom Theming",
+      "Real-time Data",
+      "Cross-platform",
+      "State Management",
+    ],
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.xavigmp.confiplant", // Replace with actual URL
+    githubUrl: null,
+  },
+  {
+    id: 3,
     title: "Content CRM",
     description:
       "Content management system for managing and distributing, and selling multimedia content. Built with React, TypeScript, and Tailwind CSS, it features a user-friendly interface and responsive design.",
@@ -42,20 +61,20 @@ const projects = [
     tags: [
       "React",
       "TypeScript",
+      "MinIO",
       "Material UI",
       "Tailwind CSS",
       "Node.js",
-      "shadcn/ui",
     ],
     demoUrl: "#",
     githubUrl: null,
   },
   {
-    id: 3,
+    id: 4,
     title: "Portfolio Website",
     description:
       "Personal portfolio website built with Next.js and Tailwind CSS showcasing my skills, experience, and projects with smooth animations and responsive design.",
-    image: "/portfolio.jpg",
+    image: "/Portfolio.jpg",
     period: "04/2025 - Present",
     tags: [
       "Next.js",
@@ -163,14 +182,17 @@ export default function ProjectsSection() {
                       <Button
                         size="sm"
                         asChild
-                        className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                        className="bg-accent hover:bg-accent/90 text-primary-foreground"
                       >
                         <a
                           href={project.playStoreUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <SmartphoneIcon className="mr-2 h-4 w-4" />
+                          <SmartphoneIcon
+                            className="mr-2 h-4 w-4"
+                            color="white"
+                          />
                           Play Store
                         </a>
                       </Button>
