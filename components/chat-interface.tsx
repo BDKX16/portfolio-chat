@@ -15,9 +15,19 @@ const profileData = {
   name: "Xavier Galarreta",
   title: "Software Developer",
   skills: [
-    ".NET Core", "ASP.NET MVC", "React", "Node.js", "Next.js", 
-    "JavaScript", "TypeScript", "SQL Server", "MongoDB", "Docker",
-    "AWS", "Clean Architecture", "Microservices"
+    ".NET Core",
+    "ASP.NET MVC",
+    "React",
+    "Node.js",
+    "Next.js",
+    "JavaScript",
+    "TypeScript",
+    "SQL Server",
+    "MongoDB",
+    "Docker",
+    "AWS",
+    "Clean Architecture",
+    "Microservices",
   ],
   experience: [
     {
@@ -45,10 +55,11 @@ const profileData = {
   projects: [
     {
       name: "Confi Plant",
-      description: "IoT software for greenhouse automation using MQTT, with a cloud platform and multiple frontends.",
-      technologies: "Node.js, React, React Native, MQTT, MongoDB, Docker"
-    }
-  ]
+      description:
+        "IoT software for greenhouse automation using MQTT, with a cloud platform and multiple frontends.",
+      technologies: "Node.js, React, React Native, MQTT, MongoDB, Docker",
+    },
+  ],
 };
 
 // Simple AI response generator based on keywords
@@ -79,13 +90,21 @@ function generateResponse(message: string): string {
       .join("\n\n");
   }
 
-  if (lowerMessage.includes("education") || lowerMessage.includes("study") || lowerMessage.includes("university")) {
+  if (
+    lowerMessage.includes("education") ||
+    lowerMessage.includes("study") ||
+    lowerMessage.includes("university")
+  ) {
     return profileData.education
       .map((edu) => `${edu.degree} from ${edu.institution} (${edu.year})`)
       .join("\n\n");
   }
 
-  if (lowerMessage.includes("project") || lowerMessage.includes("portfolio") || lowerMessage.includes("confi plant")) {
+  if (
+    lowerMessage.includes("project") ||
+    lowerMessage.includes("portfolio") ||
+    lowerMessage.includes("confi plant")
+  ) {
     if (lowerMessage.includes("confi plant")) {
       const project = profileData.projects[0];
       return `Confi Plant: ${project.description} Technologies used: ${project.technologies}`;
@@ -102,22 +121,38 @@ function generateResponse(message: string): string {
   }
 
   // Backend skills
-  if (lowerMessage.includes(".net") || lowerMessage.includes("c#") || lowerMessage.includes("backend")) {
+  if (
+    lowerMessage.includes(".net") ||
+    lowerMessage.includes("c#") ||
+    lowerMessage.includes("backend")
+  ) {
     return "My backend skills include C# with .NET Core, ASP.NET MVC, Entity Framework, and Clean Architecture principles. I've also worked with Node.js, Express, and different API integration patterns including REST and SOAP.";
   }
 
   // Frontend skills
-  if (lowerMessage.includes("frontend") || lowerMessage.includes("react") || lowerMessage.includes("ui")) {
+  if (
+    lowerMessage.includes("frontend") ||
+    lowerMessage.includes("react") ||
+    lowerMessage.includes("ui")
+  ) {
     return "For frontend development, I'm proficient with React, Redux, Next.js, and have experience with TypeScript, CSS frameworks like Tailwind, and UI libraries including Material UI and shadcn/ui. I've also worked with data visualization using D3.js and 3D graphics with Three.js.";
   }
 
   // Database skills
-  if (lowerMessage.includes("database") || lowerMessage.includes("sql") || lowerMessage.includes("mongodb")) {
+  if (
+    lowerMessage.includes("database") ||
+    lowerMessage.includes("sql") ||
+    lowerMessage.includes("mongodb")
+  ) {
     return "I have experience with SQL Server and MongoDB databases, including database design, optimization, and integration with various ORMs and query tools.";
   }
 
   // DevOps skills
-  if (lowerMessage.includes("devops") || lowerMessage.includes("cloud") || lowerMessage.includes("aws")) {
+  if (
+    lowerMessage.includes("devops") ||
+    lowerMessage.includes("cloud") ||
+    lowerMessage.includes("aws")
+  ) {
     return "My DevOps and cloud skills include working with AWS, VPS, Docker containerization, Terraform for infrastructure as code, and setting up CI/CD pipelines with GitHub Actions. I'm also experienced with Nginx and EMQX for MQTT applications.";
   }
 
@@ -134,19 +169,20 @@ type Message = {
 export default function ChatInterface() {
   // Create a session ID that persists during the browser session
   const [sessionId] = useState(() => {
-    return `session-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+    return `session-${Date.now()}-${Math.random()
+      .toString(36)
+      .substring(2, 9)}`;
   });
 
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      content:
-        `Hi there! I'm an AI assistant representing ${profileData.name}, a ${profileData.title}. What would you like to know about their professional background?`,
+      content: `Hi there! I'm an AI assistant representing ${profileData.name}, a ${profileData.title}. What would you like to know about their professional background?`,
       sender: "assistant",
       timestamp: Date.now(),
     },
   ]);
-  
+
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isChatActive, setIsChatActive] = useState(false);
@@ -183,72 +219,71 @@ export default function ChatInterface() {
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
-    
+
     try {
       // Prepare the conversation history (last 5 messages)
-      const conversationHistory = messages
-        .slice(-5)
-        .map(msg => ({ 
-          content: msg.content, 
-          role: msg.sender 
-        }));
+      const conversationHistory = messages.slice(-5).map((msg) => ({
+        content: msg.content,
+        role: msg.sender,
+      }));
 
       // If there's a webhook configured, use it, otherwise use local response generator
       if (process.env.NEXT_PUBLIC_N8N_WEBHOOK) {
         try {
           const response = await axios.post(
-            process.env.NEXT_PUBLIC_N8N_WEBHOOK, 
+            process.env.NEXT_PUBLIC_N8N_WEBHOOK,
             {
               message: input,
               sessionId: sessionId,
               conversationHistory: conversationHistory,
             },
-            { 
+            {
               timeout: 10000, // 10 second timeout
-              headers: { 'Content-Type': 'application/json' }
+              headers: { "Content-Type": "application/json" },
             }
           );
-        
+
           if (response.data && response.data.answer) {
             const aiResponse = response.data.answer;
-            
+
             const assistantMessage: Message = {
               id: `msg-${Date.now()}`,
               content: aiResponse,
               sender: "assistant",
               timestamp: Date.now(),
             };
-            
+
             setMessages((prev) => [...prev, assistantMessage]);
           } else {
+            console.log(response);
             throw new Error("Invalid webhook response format");
           }
         } catch (error) {
           console.error("Webhook error:", error);
-          
+
           // Fallback to local response generation
           const localResponse = generateResponse(input);
-          
+
           const assistantMessage: Message = {
             id: `msg-${Date.now()}`,
             content: localResponse,
             sender: "assistant",
             timestamp: Date.now(),
           };
-          
+
           setMessages((prev) => [...prev, assistantMessage]);
         }
       } else {
         // Use local response generator
         const localResponse = generateResponse(input);
-        
+
         const assistantMessage: Message = {
           id: `msg-${Date.now()}`,
           content: localResponse,
           sender: "assistant",
           timestamp: Date.now(),
         };
-        
+
         setMessages((prev) => [...prev, assistantMessage]);
       }
     } catch (error) {
@@ -278,13 +313,14 @@ export default function ChatInterface() {
 
   // Function to clear chat history
   const clearChat = () => {
-    const confirmClear = window.confirm("Are you sure you want to clear the conversation?");
+    const confirmClear = window.confirm(
+      "Are you sure you want to clear the conversation?"
+    );
     if (confirmClear) {
       setMessages([
         {
           id: "welcome",
-          content:
-            `Hi there! I'm an AI assistant representing ${profileData.name}, a ${profileData.title}. What would you like to know about their professional background?`,
+          content: `Hi there! I'm an AI assistant representing ${profileData.name}, a ${profileData.title}. What would you like to know about their professional background?`,
           sender: "assistant",
           timestamp: Date.now(),
         },
@@ -317,9 +353,9 @@ export default function ChatInterface() {
         ) : (
           <div className="flex flex-col h-[500px]">
             <div className="flex justify-end mb-2">
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={clearChat}
                 className="text-xs text-muted-foreground hover:text-destructive"
               >

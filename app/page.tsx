@@ -6,40 +6,14 @@ import TimelineSection from "@/components/timeline-section";
 import { Toaster } from "@/components/ui/toaster";
 import RevealAnimation from "@/components/reveal-animation";
 import GlowCard from "@/components/glow-card";
+import MouseParallax from "@/components/mouse-parallax";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b gradient-bg text-primary-foreground shadow-sm">
-        <div className="container flex h-16 items-center">
-          <div className="mr-4 flex">
-            <a href="/" className="mr-6 flex items-center space-x-2">
-              <span className="font-bold text-xl">My Portfolio</span>
-            </a>
-          </div>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            <a href="#chat" className="transition-colors hover:text-accent">
-              Chat
-            </a>
-            <a href="#skills" className="transition-colors hover:text-accent">
-              Skills
-            </a>
-            <a href="#timeline" className="transition-colors hover:text-accent">
-              Timeline
-            </a>
-            <a href="#projects" className="transition-colors hover:text-accent">
-              Projects
-            </a>
-            <a href="#about" className="transition-colors hover:text-accent">
-              About
-            </a>
-            <a href="#contact" className="transition-colors hover:text-accent">
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+      {/* Responsive Navbar */}
+      <Navbar />
 
       {/* Hero Section with Gradient Background */}
       <section className="text-accent py-20">
@@ -50,11 +24,13 @@ export default function Home() {
                 Hi, I'm <span className="text-primary">Xavier Galarreta</span>
               </h1>
             </RevealAnimation>
+
             <RevealAnimation direction="up" delay={0.2}>
               <p className="text-xl mb-8">
                 Full Stack Developer & Problem Solver
               </p>
             </RevealAnimation>
+
             <RevealAnimation direction="up" delay={0.3}>
               <div className="flex justify-center gap-4">
                 <a
@@ -72,6 +48,7 @@ export default function Home() {
               </div>
             </RevealAnimation>
           </div>
+
           <div className="mx-auto mt-8 max-w-[800px]">
             <RevealAnimation direction="up" delay={0.2} width="100%">
               <Suspense
@@ -145,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section Placeholder */}
+      {/* About Section with Profile Image */}
       <section id="about" className="container py-20">
         <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
           <RevealAnimation direction="up">
@@ -160,30 +137,47 @@ export default function Home() {
           </RevealAnimation>
 
           <RevealAnimation direction="up" delay={0.2} width="100%">
-            <GlowCard>
-              <div className="bg-card p-8 rounded-xl max-w-3xl text-card-foreground">
-                <p className="mb-6">
-                  I´m a full stack developer with over 3 years of experience,
-                  specializint in .NET and frontend technologies such as React
-                  and Vue. I have a passion for creating efficient and scalable
-                  applications that solve real-world problems, always aiming to
-                  enhance user experience through intuitive interfaces and
-                  innovative features.
-                </p>
-                <p>
-                  I have experience in clean architecture, microservices, and
-                  agile methodologies, which allows me to adapt to different
-                  environments and work effectively in teams. I am always eager
-                  to learn and grow, and I am excited to take on new challenges
-                  that push my skills to the next level.
-                </p>
-              </div>
-            </GlowCard>
+            <div className="flex flex-col md:flex-row gap-8">
+              <MouseParallax strength={8}>
+                <GlowCard>
+                  <div className="bg-card rounded-xl text-card-foreground flex flex-col gap-8">
+                    <div className="flex flex-col md:flex-row gap-8 items-center">
+                      <div className="flex-1">
+                        <p className="mb-6">
+                          I´m a full stack developer with over 3 years of
+                          experience, specializing in .NET and frontend
+                          technologies such as React and Vue. I have a passion
+                          for creating efficient and scalable applications that
+                          solve real-world problems, always aiming to enhance
+                          user experience through intuitive interfaces and
+                          innovative features.
+                        </p>
+                        <p>
+                          I have experience in clean architecture,
+                          microservices, and agile methodologies, which allows
+                          me to adapt to different environments and work
+                          effectively in teams. I am always eager to learn and
+                          grow, and I am excited to take on new challenges that
+                          push my skills to the next level.
+                        </p>
+                      </div>
+                      <div className="flex-1 max-w-xs mx-auto">
+                        <img
+                          src="/profile.webp"
+                          alt="Xavier Galarreta"
+                          className="w-full h-auto object-cover rounded-top-left-xl rounded-top-right-xl"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </GlowCard>
+              </MouseParallax>
+            </div>
           </RevealAnimation>
         </div>
       </section>
 
-      {/* Contact Section Placeholder */}
+      {/* Contact Section */}
       <section
         id="contact"
         className="py-20 gradient-bg text-primary-foreground"
@@ -209,69 +203,76 @@ export default function Home() {
             className="flex justify-center"
           >
             <GlowCard glowColor="rgba(255, 255, 255, 0.3)">
-              <div className="max-w-md mx-auto bg-card p-8 rounded-xl text-card-foreground">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-primary rounded-full p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-primary-foreground"
-                      >
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                      </svg>
+              <MouseParallax strength={8}>
+                <div className="max-w-md mx-auto bg-card p-8 rounded-xl text-card-foreground">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="bg-primary rounded-full p-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="text-primary-foreground"
+                        >
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                      </div>
+                      <span>+54 (223) 634-4785</span>
                     </div>
-                    <span>+54 (223) 634-4785</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-primary rounded-full p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-primary-foreground"
-                      >
-                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                      </svg>
+                    <div className="flex items-center space-x-3">
+                      <div className="bg-primary rounded-full p-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <rect
+                            width="20"
+                            height="16"
+                            x="2"
+                            y="4"
+                            rx="2"
+                          ></rect>
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                      </div>
+                      <span>xgalarreta.dev@gmail.com</span>
                     </div>
-                    <span>xgalarreta.dev@gmail.com</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-primary rounded-full p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-primary-foreground"
-                      >
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                      </svg>
+                    <div className="flex items-center space-x-3">
+                      <div className="bg-primary rounded-full p-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="text-primary-foreground"
+                        >
+                          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <span>Mar del Plata, Buenos Aires</span>
                     </div>
-                    <span>Mar del Plata, Buenos Aires</span>
                   </div>
                 </div>
-              </div>
+              </MouseParallax>
             </GlowCard>
           </RevealAnimation>
         </div>

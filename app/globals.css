@@ -5,13 +5,13 @@
 @layer base {
   :root {
     --background: 210 33% 99%;
-    --foreground: 210 70% 33%;
+    --foreground: 220 13% 18%; /* Changed to a dark color (almost black) for better contrast */
 
     --card: 0 0% 100%;
-    --card-foreground: 210 70% 33%;
+    --card-foreground: 220 13% 18%; /* Updated card text color for consistency */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 70% 33%;
+    --popover-foreground: 220 13% 18%; /* Updated popover text color */
 
     --primary: 210 70% 33%;
     --primary-foreground: 0 0% 100%;
@@ -20,10 +20,10 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: #333333;
-    --muted-foreground: #c9c9c9;
+    --muted-foreground: 220 13% 28%; /* Made muted text darker but still distinguishable */
 
     --accent: 201 71% 65%;
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 220 13% 18%; /* Updated accent text color */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -50,6 +50,17 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .gradient-bg {
