@@ -147,7 +147,7 @@ export default function TimelineSection() {
       <RevealAnimation direction="up" delay={0.1}>
         <div className="flex items-center gap-3 mb-8">
           <div className="bg-accent p-2 rounded-full">
-            <GraduationCap className="h-6 w-6 text-accent-foreground" />
+            <GraduationCap className="h-6 w-6 text-secondary-foreground" />
           </div>
           <h3 className="text-2xl font-bold text-primary">Education</h3>
         </div>

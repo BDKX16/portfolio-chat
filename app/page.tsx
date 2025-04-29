@@ -8,13 +8,12 @@ import RevealAnimation from "@/components/reveal-animation";
 import GlowCard from "@/components/glow-card";
 import MouseParallax from "@/components/mouse-parallax";
 import Navbar from "@/components/navbar";
-import Head from "next/head";
 
 export default function Home() {
   return (
     <>
       <main
-        className="min-h-screen bg-background"
+        className="min-h-screen"
         itemScope
         itemType="http://schema.org/ProfilePage"
       >
@@ -22,9 +21,9 @@ export default function Home() {
         <Navbar />
 
         {/* Hero Section with Gradient Background */}
-        <section id="chat" className="text-accent py-20">
-          <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
+        <section id="chat" className="text-accent py-20 relative">
+          <div className="container relative">
+            <div className="max-w-3xl mx-auto text-center relative">
               <RevealAnimation direction="up" delay={0.1}>
                 <h1
                   className="text-4xl font-bold mb-6 md:text-5xl lg:text-6xl"
@@ -62,7 +61,10 @@ export default function Home() {
               </RevealAnimation>
             </div>
 
-            <div className="mx-auto mt-8 max-w-[800px]">
+            <div
+              className="mx-auto mt-8 max-w-[800px] relative"
+              style={{ zIndex: 10 }}
+            >
               <RevealAnimation direction="up" delay={0.2} width="100%">
                 <Suspense
                   fallback={
@@ -86,7 +88,10 @@ export default function Home() {
           <div className="container">
             <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center mb-16">
               <RevealAnimation direction="up">
-                <h2 className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl text-primary">
+                <h2
+                  className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl text-primary"
+                  style={{ zIndex: 1 }}
+                >
                   My Projects
                 </h2>
               </RevealAnimation>

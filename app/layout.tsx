@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import Script from "next/script";
+import Waves from "@/components/ui/waves";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -125,7 +126,32 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="relative min-h-screen">
+            <Waves
+              style={{
+                zIndex: 0,
+                position: "fixed",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                pointerEvents: "none",
+              }}
+              lineColor="#f0f0f0a9"
+              backgroundColor="rgba(255, 255, 255, 0.2)"
+              waveSpeedX={0.02}
+              waveSpeedY={0.01}
+              waveAmpX={40}
+              waveAmpY={20}
+              friction={0.9}
+              tension={0.01}
+              maxCursorMove={120}
+              xGap={12}
+              yGap={36}
+            />
+
+            <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
+          </div>
         </ThemeProvider>
       </body>
     </html>
