@@ -26,7 +26,7 @@ const projects = [
       "SSL",
       "shadcn/ui",
     ],
-    demoUrl: "https://dev.confiplant.cloud", // Replace with actual URL
+    demoUrl: "https://confiplant.cloud", // Replace with actual URL
     githubUrl: "https://github.com/BDKX16/react-admin-2", // Replace with actual URL
   },
   {
