@@ -8,7 +8,8 @@ import RevealAnimation from "@/components/reveal-animation";
 import GlowCard from "@/components/glow-card";
 import MouseParallax from "@/components/mouse-parallax";
 import Navbar from "@/components/navbar";
-
+import TechSlider from "@/components/tech-slider";
+import CompanySlider from "@/components/company-slider";
 export default function Home() {
   return (
     <>
@@ -78,6 +79,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Company Slider */}
+        <CompanySlider />
+
         {/* Projects Section */}
         <section
           id="projects"
@@ -136,7 +140,14 @@ export default function Home() {
             <SkillsSection />
           </div>
         </section>
-
+        <section
+          id="skills"
+          className="py-20 bg-card"
+          itemScope
+          itemType="http://schema.org/ItemList"
+        >
+          <TechSlider />
+        </section>
         {/* Timeline Section */}
         <section id="timeline" className="py-20 bg-muted">
           <div className="container">
