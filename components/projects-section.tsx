@@ -9,7 +9,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { ExternalLink, Github, SmartphoneIcon, X } from "lucide-react";
+import {
+  Download,
+  ExternalLink,
+  Github,
+  SmartphoneIcon,
+  X,
+} from "lucide-react";
 import RevealAnimation from "./reveal-animation";
 import GlowCard from "./glow-card";
 import MouseParallax from "./mouse-parallax";
@@ -18,6 +24,137 @@ import MouseParallax from "./mouse-parallax";
 const projects = [
   {
     id: 1,
+    title: "Nota Importados",
+    description:
+      "E-commerce especializado en perfumes de lujo importados, desarrollado para empresa marplatense. Plataforma completa con catálogo avanzado, sistema de pagos y panel administrativo.",
+    detailedDescription:
+      "Nota Importados es una plataforma de e-commerce desarrollada específicamente para la importación y venta de perfumes de lujo en Buenos Aires. El sitio cuenta con un catálogo sofisticado que permite a los usuarios explorar fragancias por marca, familia olfativa y ocasión de uso. Incluye sistema de carrito de compras, múltiples métodos de pago, gestión de stock en tiempo real y un panel administrativo completo para gestionar productos, pedidos y clientes. El diseño está optimizado para ofrecer una experiencia de usuario fluida y atractiva, con un enfoque en la facilidad de navegación y la presentación visual de los productos, con un footer completo y con soporte completo para la mejor experiencia de usuario en todos sus aspectos.",
+    image: "/Nota2.jpg",
+    images: ["/Nota2.jpg", "/Nota4.jpg", "/Nota5.jpg", "/Nota3.jpg"],
+    period: "08/2025 - 09/2025",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Mercadopago",
+      "Andreani",
+      "MongoDb",
+      "Tailwind CSS",
+      "Nextjs",
+      "Express.js",
+    ],
+    demoUrl: "https://notaimport.com",
+    githubUrl: "https://github.com/BDKX16/nota-importados",
+    features: [
+      "Catálogo avanzado de perfumes",
+      "Filtros por marca, familia olfativa y precio",
+      "Sistema de carrito y checkout",
+      "Integración con Stripe para pagos",
+      "Gestión de stock en tiempo real",
+      "Panel administrativo completo",
+      "Sistema de usuarios y favoritos",
+      "Galería de imágenes optimizada",
+    ],
+    challenges: [
+      "Optimización de búsqueda y filtros complejos",
+      "Integración segura de sistema de pagos y envíos",
+      "Gestión eficiente de inventario de productos importados",
+      "Optimización de imágenes para catálogo extenso",
+    ],
+  },
+  {
+    id: 2,
+    title: "StudySphere",
+    description:
+      "Aplicación de escritorio de productividad con canvas interactivo y modo focus. Ventana flotante para tareas, interfaz estética e intuitiva, y sincronización automática offline-online.",
+    detailedDescription:
+      "StudySphere es una innovadora aplicación de escritorio diseñada para maximizar la productividad estudiantil y profesional. La aplicación cuenta con un canvas interactivo donde los usuarios pueden organizar visualmente sus proyectos y tareas, un modo focus que minimiza distracciones, y una ventana flotante que mantiene las tareas siempre visibles en pantalla. Su diseño estético y minimalista se combina con funcionalidades avanzadas como sincronización automática cuando se reconecta a internet, permitiendo trabajar completamente offline sin perder datos.",
+    image: "/StudySphere1.jpg",
+    images: [
+      "/StudySphere1.jpg",
+      "/StudySphere2.jpg",
+      "/StudySphere3.jpg",
+      "/StudySphere4.jpg",
+      "/StudySphere6.jpg",
+      "/StudySphere7.jpg",
+      "/StudySphere8.jpg",
+      "/StudySphereInstaller.jpg",
+    ],
+    period: "04/2025 - 08/2025",
+    tags: [
+      "Electron",
+      "React",
+      "TypeScript",
+      "SQLite",
+      "Desktop App",
+      "Productivity",
+      "Offline-First",
+    ],
+    downloadUrl: "https://github.com/BDKX16/studysphere-releases/releases",
+    features: [
+      "Canvas interactivo para organización visual",
+      "Modo focus con bloqueo de distracciones",
+      "Ventana flotante de tareas persistente",
+      "Sincronización automática offline-online",
+      "Interfaz minimalista y estética",
+      "Gestión avanzada de proyectos y tareas",
+      "Tema oscuro y claro",
+      "Notificaciones inteligentes con sonidos",
+    ],
+    challenges: [
+      "Implementación de canvas responsive y fluido",
+      "Desarrollo de sistema offline-first robusto",
+      "Optimización de ventanas flotantes en diferentes SO",
+      "Sincronización de datos sin conflictos",
+    ],
+  },
+  {
+    id: 3,
+    title: "Luna BrewHouse",
+    description:
+      "Plataforma web completa para cervecería artesanal marplatense que incluye landing page y sistema de administración integral para gestión de ventas, inventario y recetas de cerveza.",
+    detailedDescription:
+      "Luna BrewHouse es una solución digital completa desarrollada para una cervecería artesanal de Mar del Plata. El proyecto incluye un sitio web atractivo para mostrar productos y la historia de la marca, junto con un robusto sistema de administración que permite gestionar ventas, controlar inventario de ingredientes, administrar recetas de cerveza y generar reportes de producción. La plataforma está diseñada para optimizar las operaciones diarias de la cervecería y mejorar la experiencia del cliente.",
+    image: "/LunaBrew0.jpg",
+    images: [
+      "/LunaBrew0.jpg",
+      "/LunaBrew3.jpg",
+      "/LunaBrew4.jpg",
+      "/LunaBrew5.jpg",
+      "/LunaBrew1.jpg",
+      "/LunaBrew2.jpg",
+    ],
+    period: "03/2025 - 07/2025",
+    tags: [
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "Express.js",
+      "Material UI",
+      "Chart.js",
+      "Mercadopago",
+    ],
+    demoUrl: "https://lunabrewhouse.com",
+    githubUrl: "https://github.com/BDKX16/luna-brew-house",
+    features: [
+      "Sitio web corporativo responsive",
+      "Sistema de gestión de ventas",
+      "Administración de recetas de cerveza a tiempo real",
+      "Reportes de producción y ventas",
+      "Dashboard administrativo completo",
+      "Gestión de clientes y proveedores",
+      "Integracion de Mercadopago",
+    ],
+    challenges: [
+      "Diseño de arquitectura para industria cervecera",
+      "Implementación de sistema de recetas complejo",
+      "Optimización de reportes con grandes volúmenes de datos",
+      "Integración de múltiples módulos administrativos",
+      "Integración de seguimiento de recetas a tiempo real",
+    ],
+  },
+
+  {
+    id: 4,
     title: "Fit Tracker",
     description:
       "A comprehensive fitness tracking application that allows users to log workouts, track progress, and set fitness goals. Built with a focus on user experience and performance.",
@@ -51,7 +188,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 5,
     title: "MiniTwitter",
     description:
       "A microblogging platform for sharing short updates and multimedia content. Built with a focus on real-time interactions and a responsive design.",
@@ -91,7 +228,7 @@ const projects = [
     ],
   },
   {
-    id: 3,
+    id: 6,
     title: "Confi Plant",
     description:
       "IoT software for greenhouse automation, adaptable for use in various industrial fields. Implemented MQTT for efficient device communication with a cloud platform featuring database integration and multiple frontends.",
@@ -134,7 +271,7 @@ const projects = [
     ],
   },
   {
-    id: 4,
+    id: 7,
     title: "IoT Control Mobile App",
     description:
       "Professional mobile application for IoT device management and monitoring through WebSockets. Leverages the architecture of the Confi Plant web platform, featuring customizable themes, real-time device control, and an integrated calendar for scheduling automation tasks.",
@@ -170,7 +307,7 @@ const projects = [
     ],
   },
   {
-    id: 5,
+    id: 8,
     title: "Content CRM",
     description:
       "Content management system for managing and distributing, and selling multimedia content. Built with React, TypeScript, and Tailwind CSS, it features a user-friendly interface and responsive design.",
@@ -203,7 +340,7 @@ const projects = [
     ],
   },
   {
-    id: 6,
+    id: 9,
     title: "Portfolio Website",
     description:
       "Personal portfolio website built with Next.js and Tailwind CSS showcasing my skills, experience, and projects with smooth animations and responsive design.",
@@ -322,6 +459,24 @@ export default function ProjectsSection() {
                   </div>
 
                   <div className="flex flex-wrap gap-4">
+                    {project.downloadUrl && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <a
+                          href={project.downloadUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Download className="mr-2 h-4 w-4" />
+                          Download
+                        </a>
+                      </Button>
+                    )}
                     {project.githubUrl && (
                       <Button
                         variant="outline"

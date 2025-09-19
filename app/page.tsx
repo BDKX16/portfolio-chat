@@ -10,6 +10,7 @@ import MouseParallax from "@/components/mouse-parallax";
 import Navbar from "@/components/navbar";
 import TechSlider from "@/components/tech-slider";
 import CompanySlider from "@/components/company-slider";
+import TestimonialsSection from "@/components/testimonials-section";
 export default function Home() {
   return (
     <>
@@ -165,6 +166,38 @@ export default function Home() {
               </RevealAnimation>
             </div>
             <TimelineSection />
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section
+          id="testimonials"
+          className="pt-20 pb-10 bg-card"
+          itemScope
+          itemType="http://schema.org/ItemList"
+        >
+          <div className="container">
+            <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center mb-16">
+              <RevealAnimation direction="up">
+                <h2
+                  className="text-3xl font-bold leading-tight tracking-tighter md:text-4xl text-primary"
+                  itemProp="name"
+                >
+                  Testimonials
+                </h2>
+              </RevealAnimation>
+              <RevealAnimation direction="up" delay={0.1}>
+                <p
+                  className="max-w-[750px] text-lg text-muted-foreground sm:text-xl mb-12"
+                  itemProp="description"
+                >
+                  What colleagues and clients say about working with me
+                </p>
+              </RevealAnimation>
+              <RevealAnimation direction="up" delay={0.2}>
+                <TestimonialsSection />
+              </RevealAnimation>
+            </div>
           </div>
         </section>
 
