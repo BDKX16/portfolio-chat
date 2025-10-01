@@ -242,7 +242,7 @@ export default function Home() {
                         </div>
                         <div className="flex-1 max-w-xs mx-auto">
                           <img
-                            src="/profile.webp"
+                            src="/profile.jpg"
                             alt="Xavier Galarreta"
                             className="w-full h-auto object-cover rounded-top-left-xl rounded-top-right-xl"
                           />
