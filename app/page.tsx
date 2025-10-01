@@ -223,7 +223,7 @@ export default function Home() {
                       <div className="flex flex-col md:flex-row gap-8 items-center">
                         <div className="flex-1">
                           <p className="mb-6">
-                            I´m a full stack developer with over 3 years of
+                            I´m a full stack developer with over 4 years of
                             experience, specializing in .NET and frontend
                             technologies such as React and Vue. I have a passion
                             for creating efficient and scalable applications
