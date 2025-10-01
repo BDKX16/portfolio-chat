@@ -20,53 +20,13 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "María González",
+    name: "Franco Caldarola",
     position: "Tech Lead",
     company: "Softtek",
     content:
-      "Xavier es un desarrollador excepcional. Su capacidad para resolver problemas complejos y su dedicación al código limpio son impresionantes. Trabajar con él en proyectos de .NET fue una experiencia muy enriquecedora.",
-    rating: 5,
-    linkedIn: "https://linkedin.com/in/maria-gonzalez",
-  },
-  {
-    id: 2,
-    name: "Carlos Rodríguez",
-    position: "Senior Frontend Developer",
-    company: "NTT Data",
-    content:
-      "La expertise de Xavier en React y su atención al detalle en la UI/UX lo convierten en un desarrollador front-end muy valioso. Su código es siempre limpio y bien documentado.",
-    rating: 5,
-    linkedIn: "https://linkedin.com/in/carlos-rodriguez",
-  },
-  {
-    id: 3,
-    name: "Ana Patricia Vega",
-    position: "Project Manager",
-    company: "Ternium",
-    content:
-      "Xavier demostró ser un team player excepcional. Su capacidad para adaptarse a nuevas tecnologías rápidamente y su proactividad para proponer mejoras técnicas fueron clave para el éxito de nuestros proyectos.",
-    rating: 5,
-    linkedIn: "https://linkedin.com/in/ana-vega",
-  },
-  {
-    id: 4,
-    name: "Jorge Mendoza",
-    position: "Software Architect",
-    company: "Movistar",
-    content:
-      "He tenido el placer de trabajar con Xavier en varios proyectos de arquitectura. Su comprensión de patrones de diseño y microservicios es sobresaliente. Altamente recomendado.",
-    rating: 5,
-    linkedIn: "https://linkedin.com/in/jorge-mendoza",
-  },
-  {
-    id: 5,
-    name: "Lucía Fernández",
-    position: "DevOps Engineer",
-    company: "Prevención Salud",
-    content:
-      "Xavier tiene una excelente comprensión de todo el ciclo de desarrollo. Su conocimiento en Docker y CI/CD facilitó mucho nuestras implementaciones. Un profesional muy competente.",
-    rating: 5,
-    linkedIn: "https://linkedin.com/in/lucia-fernandez",
+      "Xavier es un desarrollador que fue creciendo mucho dentro del equipo. Mostró iniciativa, aportando ideas nuevas y siempre buscó mejorar. Gracias a su esfuerzo y dedicación dio un salto de senority, adaptándose con facilidad a la magnitud y los desafíos de la empresa. Esto recién comienza Xavi!",
+    rating: 0,
+    linkedIn: "https://linkedin.com/in/franco-caldarola",
   },
 ];
 
@@ -172,13 +132,14 @@ export default function TestimonialsSection() {
                   </div>
 
                   <div className="flex items-center gap-1">
-                    {[...Array(currentTestimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="text-yellow-500 fill-current"
-                        size={16}
-                      />
-                    ))}
+                    {currentTestimonial.rating > 0 &&
+                      [...Array(currentTestimonial.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="text-yellow-500 fill-current"
+                          size={16}
+                        />
+                      ))}
                   </div>
                 </div>
               </div>
