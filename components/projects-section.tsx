@@ -15,6 +15,7 @@ import {
   Github,
   SmartphoneIcon,
   X,
+  ChevronDown,
 } from "lucide-react";
 import RevealAnimation from "./reveal-animation";
 import GlowCard from "./glow-card";
@@ -24,6 +25,51 @@ import MouseParallax from "./mouse-parallax";
 const projects = [
   {
     id: 1,
+    title: "CONFI",
+    description:
+      "IoT software for Microgreens Crop Automation, also adaptable for use in various industrial fields. Implemented MQTT for efficient device communication with a cloud platform featuring database integration and multiple frontends.",
+    detailedDescription:
+      "CONFI is an comprehensive IoT platform designed for microgreens automation and industrial monitoring. The system connects multiple sensors and actuators through MQTT protocol, providing real-time monitoring and automated control of environmental conditions. Features include temperature control, humidity monitoring, irrigation systems, and comprehensive analytics dashboard.",
+    image: "/WebDash0.jpg",
+    images: [
+      "/WebDash1.jpg",
+      "/WebDash2.jpg",
+      "/WebDash2-1.jpg",
+      "/WebDash3.jpg",
+      "/WebDash4.jpg",
+      "/WebDash5.jpg",
+      "/WebDashTemp.jpg",
+    ],
+    period: "05/2022 - Present",
+    tags: [
+      "Node.js",
+      "React",
+      "MQTT",
+      "WebSockets",
+      "MongoDB",
+      "Node-RED",
+      "Docker",
+      "SSL",
+      "shadcn/ui",
+    ],
+    demoUrl: "https://confiplant.cloud",
+    githubUrl: "https://github.com/BDKX16/react-admin-2",
+    features: [
+      "Real-time sensor data monitoring",
+      "Automated irrigation and climate control",
+      "Historical data analysis and reporting",
+      "Alert system for critical conditions",
+      "Multi-device support and remote access",
+      "Customizable dashboard and widgets",
+    ],
+    challenges: [
+      "Handling large volumes of sensor data",
+      "Ensuring system reliability for critical operations",
+      "Implementing efficient MQTT communication",
+    ],
+  },
+  {
+    id: 2,
     title: "Nota Importados",
     description:
       "E-commerce especializado en perfumes de lujo importados, desarrollado para empresa marplatense. Plataforma completa con catálogo avanzado, sistema de pagos y panel administrativo.",
@@ -62,7 +108,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "StudySphere",
     description:
       "Aplicación de escritorio de productividad con canvas interactivo y modo focus. Ventana flotante para tareas, interfaz estética e intuitiva, y sincronización automática offline-online.",
@@ -108,7 +154,7 @@ const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Luna BrewHouse",
     description:
       "Plataforma web completa para cervecería artesanal marplatense que incluye landing page y sistema de administración integral para gestión de ventas, inventario y recetas de cerveza.",
@@ -154,7 +200,7 @@ const projects = [
   },
 
   {
-    id: 4,
+    id: 5,
     title: "Fit Tracker",
     description:
       "A comprehensive fitness tracking application that allows users to log workouts, track progress, and set fitness goals. Built with a focus on user experience and performance.",
@@ -188,7 +234,7 @@ const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "MiniTwitter",
     description:
       "A microblogging platform for sharing short updates and multimedia content. Built with a focus on real-time interactions and a responsive design.",
@@ -225,49 +271,6 @@ const projects = [
       "Implementing real-time features with WebSockets",
       "Scaling the application for multiple users",
       "Optimizing feed algorithms",
-    ],
-  },
-  {
-    id: 6,
-    title: "Confi Plant",
-    description:
-      "IoT software for greenhouse automation, adaptable for use in various industrial fields. Implemented MQTT for efficient device communication with a cloud platform featuring database integration and multiple frontends.",
-    detailedDescription:
-      "Confi Plant is an comprehensive IoT platform designed for greenhouse automation and industrial monitoring. The system connects multiple sensors and actuators through MQTT protocol, providing real-time monitoring and automated control of environmental conditions. Features include temperature control, humidity monitoring, irrigation systems, and comprehensive analytics dashboard.",
-    image: "/WebDashTemp.jpg",
-    images: [
-      "/WebDashTemp.jpg",
-      "/WebDash1.jpg",
-      "/WebDash2.jpg",
-      "/WebDash3.jpg",
-      "/WebDash4.jpg",
-      "/WebDash5.jpg",
-    ],
-    period: "05/2022 - Present",
-    tags: [
-      "Node.js",
-      "React",
-      "MQTT",
-      "WebSockets",
-      "MongoDB",
-      "Docker",
-      "SSL",
-      "shadcn/ui",
-    ],
-    demoUrl: "https://confiplant.cloud",
-    githubUrl: "https://github.com/BDKX16/react-admin-2",
-    features: [
-      "Real-time sensor data monitoring",
-      "Automated irrigation and climate control",
-      "Historical data analysis and reporting",
-      "Alert system for critical conditions",
-      "Multi-device support and remote access",
-      "Customizable dashboard and widgets",
-    ],
-    challenges: [
-      "Handling large volumes of sensor data",
-      "Ensuring system reliability for critical operations",
-      "Implementing efficient MQTT communication",
     ],
   },
   {
@@ -379,6 +382,7 @@ const projects = [
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [visibleProjects, setVisibleProjects] = useState(4);
 
   const openProjectModal = (project) => {
     setSelectedProject(project);
@@ -406,9 +410,16 @@ export default function ProjectsSection() {
     }
   };
 
+  const loadMoreProjects = () => {
+    setVisibleProjects((prev) => prev + 3);
+  };
+
+  const displayedProjects = projects.slice(0, visibleProjects);
+  const hasMoreProjects = visibleProjects < projects.length;
+
   return (
     <div className="flex flex-col gap-24 max-w-5xl mx-auto">
-      {projects.map((project, index) => (
+      {displayedProjects.map((project, index) => (
         <RevealAnimation
           key={project.id}
           width="100%"
@@ -542,6 +553,21 @@ export default function ProjectsSection() {
         </RevealAnimation>
       ))}
 
+      {/* Load More Button */}
+      {hasMoreProjects && (
+        <RevealAnimation width="100%" delay={0.1}>
+          <div className="flex justify-center mt-8">
+            <Button
+              onClick={loadMoreProjects}
+              className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg rounded-full shadow-lg transition-all hover:scale-105"
+            >
+              Ver más proyectos
+              <ChevronDown className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </RevealAnimation>
+      )}
+
       {/* Project Detail Modal */}
       <Dialog open={!!selectedProject} onOpenChange={closeProjectModal}>
         <DialogContent className="max-w-6xl max-h-[95vh] overflow-y-auto p-0">
@@ -556,16 +582,18 @@ export default function ProjectsSection() {
               {/* Large Image Gallery */}
               {selectedProject.images && selectedProject.images.length > 0 && (
                 <div className="relative px-6">
-                  <img
-                    src={
-                      selectedProject.images[currentImageIndex] ||
-                      "/placeholder.svg"
-                    }
-                    alt={`${selectedProject.title} - Image ${
-                      currentImageIndex + 1
-                    }`}
-                    className="w-full h-96 md:h-[500px] object-cover rounded-lg shadow-lg"
-                  />
+                  <div className="w-full h-96 md:h-[500px] bg-white rounded-lg shadow-lg flex items-center justify-center">
+                    <img
+                      src={
+                        selectedProject.images[currentImageIndex] ||
+                        "/placeholder.svg"
+                      }
+                      alt={`${selectedProject.title} - Image ${
+                        currentImageIndex + 1
+                      }`}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
 
                   {selectedProject.images.length > 1 && (
                     <>

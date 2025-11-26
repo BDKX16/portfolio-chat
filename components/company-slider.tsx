@@ -60,6 +60,17 @@ const companies = [
       />
     ),
   },
+  {
+    name: "YPF",
+    url: "https://www.ypf.com/",
+    logo: (
+      <img
+        src="/ypf-logo.png"
+        alt="YPF"
+        className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+      />
+    ),
+  },
 ];
 
 export default function CompanySlider() {
