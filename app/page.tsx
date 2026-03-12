@@ -60,7 +60,7 @@ export default function Home() {
                     Contact Me
                   </a>
                   <a
-                    href="/Xavier_Galarreta_CV_ESP_9-2025-2.pdf"
+                    href="/XavierGalarretaCV_05-01-2026.pdf"
                     download
                     className="bg-accent text-white px-6 py-2 rounded-full font-medium hover:bg-accent/90 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl"
                   >

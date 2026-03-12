@@ -25,6 +25,45 @@ import MouseParallax from "./mouse-parallax";
 const projects = [
   {
     id: 1,
+    title: "Casa Vacia",
+    description:
+      "Sitio web inmersivo para productora de cine de terror y fantasía, con efectos parallax en el hero section, sistema de partículas atmosféricas y sonido ambiental para crear una experiencia cinematográfica única.",
+    detailedDescription:
+      "La web de Casa Vacia es una landing page diseñada para una productora cinematográfica especializada en terror y fantasía. El proyecto destaca por su enfoque en la experiencia del usuario, implementando un impresionante efecto parallax en la sección hero que captura la esencia oscura y mística de la marca. El sitio incorpora un sistema de partículas que flota en el fondo, creando una atmósfera envolvente, junto con sonidos ambientales cuidadosamente seleccionados que transportan al visitante al mundo del terror y la fantasía. La combinación de estos elementos visuales y auditivos crea una experiencia inmersiva que refleja la calidad cinematográfica de la productora.",
+    image: "/vaciaparallax_web.mp4",
+    isVideo: true,
+    images: ["/vaciaparallax_web.mp4", "/vacia1.jpg", "/vacia2.jpg"],
+    period: "02/2026 - 03/2026",
+    tags: [
+      "Next.js",
+      "Claude Code",
+      "Docker",
+      "Parallax Effects",
+      "Particle System",
+      "Web Audio API",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+    demoUrl: "#",
+    features: [
+      "Efecto parallax cinematográfico en hero section",
+      "Sistema de partículas atmosféricas en tiempo real",
+      "Sonido ambiental inmersivo con controles de usuario",
+      "Diseño responsive con animaciones fluidas",
+      "Optimización de performance para efectos complejos",
+      "Interfaz oscura y mística acorde a la marca",
+      "Galería de proyectos cinematográficos",
+      "Integración con Docker para deployment",
+    ],
+    challenges: [
+      "Optimización de rendimiento con múltiples efectos simultáneos",
+      "Sincronización de efectos visuales y auditivos",
+      "Implementación de parallax sin afectar UX en móviles",
+      "Balance entre estética inmersiva y tiempos de carga",
+    ],
+  },
+  {
+    id: 2,
     title: "CONFI",
     description:
       "IoT software for Microgreens Crop Automation, also adaptable for use in various industrial fields. Implemented MQTT for efficient device communication with a cloud platform featuring database integration and multiple frontends.",
@@ -69,7 +108,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Nota Importados",
     description:
       "E-commerce especializado en perfumes de lujo importados, desarrollado para empresa marplatense. Plataforma completa con catálogo avanzado, sistema de pagos y panel administrativo.",
@@ -108,7 +147,7 @@ const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "StudySphere",
     description:
       "Aplicación de escritorio de productividad con canvas interactivo y modo focus. Ventana flotante para tareas, interfaz estética e intuitiva, y sincronización automática offline-online.",
@@ -154,7 +193,7 @@ const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Luna BrewHouse",
     description:
       "Plataforma web completa para cervecería artesanal marplatense que incluye landing page y sistema de administración integral para gestión de ventas, inventario y recetas de cerveza.",
@@ -200,7 +239,7 @@ const projects = [
   },
 
   {
-    id: 5,
+    id: 6,
     title: "Fit Tracker",
     description:
       "A comprehensive fitness tracking application that allows users to log workouts, track progress, and set fitness goals. Built with a focus on user experience and performance.",
@@ -234,7 +273,7 @@ const projects = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: "MiniTwitter",
     description:
       "A microblogging platform for sharing short updates and multimedia content. Built with a focus on real-time interactions and a responsive design.",
@@ -274,7 +313,7 @@ const projects = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     title: "IoT Control Mobile App",
     description:
       "Professional mobile application for IoT device management and monitoring through WebSockets. Leverages the architecture of the Confi Plant web platform, featuring customizable themes, real-time device control, and an integrated calendar for scheduling automation tasks.",
@@ -310,7 +349,7 @@ const projects = [
     ],
   },
   {
-    id: 8,
+    id: 9,
     title: "Content CRM",
     description:
       "Content management system for managing and distributing, and selling multimedia content. Built with React, TypeScript, and Tailwind CSS, it features a user-friendly interface and responsive design.",
@@ -343,7 +382,7 @@ const projects = [
     ],
   },
   {
-    id: 9,
+    id: 10,
     title: "Portfolio Website",
     description:
       "Personal portfolio website built with Next.js and Tailwind CSS showcasing my skills, experience, and projects with smooth animations and responsive design.",
@@ -436,11 +475,27 @@ export default function ProjectsSection() {
               >
                 <div className="flex-1">
                   <div className="h-full">
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="h-full w-full object-cover"
-                    />
+                    {project.isVideo ? (
+                      <video
+                        src={project.image}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        className="h-full w-full object-cover"
+                        onError={(e) => {
+                          console.error("Error loading video:", project.image);
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <img
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        className="h-full w-full object-cover"
+                      />
+                    )}
                   </div>
                 </div>
 
@@ -583,16 +638,35 @@ export default function ProjectsSection() {
               {selectedProject.images && selectedProject.images.length > 0 && (
                 <div className="relative px-6">
                   <div className="w-full h-96 md:h-[500px] bg-white rounded-lg shadow-lg flex items-center justify-center">
-                    <img
-                      src={
-                        selectedProject.images[currentImageIndex] ||
-                        "/placeholder.svg"
-                      }
-                      alt={`${selectedProject.title} - Image ${
-                        currentImageIndex + 1
-                      }`}
-                      className="max-w-full max-h-full object-contain"
-                    />
+                    {selectedProject.images[currentImageIndex]?.endsWith('.mp4') ||
+                    selectedProject.images[currentImageIndex]?.endsWith('.webm') ||
+                    selectedProject.images[currentImageIndex]?.endsWith('.mov') ? (
+                      <video
+                        key={selectedProject.images[currentImageIndex]}
+                        src={selectedProject.images[currentImageIndex]}
+                        controls
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        className="max-w-full max-h-full object-contain"
+                        onError={(e) => {
+                          console.error("Error loading video in modal:", selectedProject.images[currentImageIndex]);
+                        }}
+                      />
+                    ) : (
+                      <img
+                        src={
+                          selectedProject.images[currentImageIndex] ||
+                          "/placeholder.svg"
+                        }
+                        alt={`${selectedProject.title} - Image ${
+                          currentImageIndex + 1
+                        }`}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    )}
                   </div>
 
                   {selectedProject.images.length > 1 && (
