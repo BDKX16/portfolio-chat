@@ -28,6 +28,15 @@ const testimonials: Testimonial[] = [
     rating: 0,
     linkedIn: "https://linkedin.com/in/franco-caldarola",
   },
+  {
+    id: 2,
+    name: "Lautaro Prieto",
+    position: "Director",
+    company: "Casa Vacía Estudio",
+    content:
+      "Trabajar con Xavier en el desarrollo del sitio web de Casa Vacía Estudio fue una experiencia excelente. Desde el inicio captó la identidad y la atmósfera que queríamos transmitir con el estudio, espacio cinematográfico, minimalista y con identidad visual. El proceso fue muy fluido, con una gran atención al detalle y una capacidad enorme para traducir y proponer ideas para armar la página. El resultado final refleja perfectamente el espíritu del proyecto. Compromiso y resultados excelentes.",
+    rating: 0,
+  },
 ];
 
 export default function TestimonialsSection() {
@@ -110,37 +119,36 @@ export default function TestimonialsSection() {
                   </p>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
-                      <span className="text-primary font-bold text-lg">
-                        {currentTestimonial.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-primary">
-                        {currentTestimonial.name}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {currentTestimonial.position} at{" "}
-                        {currentTestimonial.company}
-                      </p>
-                    </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                    <span className="text-primary font-bold text-lg">
+                      {currentTestimonial.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </span>
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-primary">
+                      {currentTestimonial.name}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {currentTestimonial.position} at{" "}
+                      {currentTestimonial.company}
+                    </p>
                   </div>
 
-                  <div className="flex items-center gap-1">
-                    {currentTestimonial.rating > 0 &&
-                      [...Array(currentTestimonial.rating)].map((_, i) => (
+                  {currentTestimonial.rating > 0 && (
+                    <div className="flex items-center gap-1 ml-auto">
+                      {[...Array(currentTestimonial.rating)].map((_, i) => (
                         <Star
                           key={i}
                           className="text-yellow-500 fill-current"
                           size={16}
                         />
                       ))}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </GlowCard>
