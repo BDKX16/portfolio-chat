@@ -12,9 +12,10 @@ const workExperience = [
     location: "Argentina",
     period: "12/2023 - Present",
     description:
-      "Development and maintenance of applications in .NET Core. Use of technologies like LINQ, NHibernate, and Vue, integrating APIs such as Arca (ex AFIP) and Mercado Pago. Implementation of Clean Architecture and development best practices. Integration of REST and SOAP APIs and optimization of queries in SQL Server databases.",
+      "Development and maintenance of applications in .NET Core and React for enterprise clients including YPF. Use of technologies like LINQ, NHibernate, and Vue, integrating APIs such as Arca (ex AFIP) and Mercado Pago. Implementation of Clean Architecture and development best practices. Integration of REST and SOAP APIs and optimization of queries in SQL Server databases.",
     skills: [
       ".NET Core",
+      "React",
       "LINQ",
       "NHibernate",
       "Vue",
@@ -110,7 +111,7 @@ export default function TimelineSection() {
                     <h4 className="text-xl font-bold text-primary">
                       {job.role}
                     </h4>
-                    <div className="flex items-center text-muted-foreground mt-1 md:mt-0">
+                    <div className="flex items-center text-foreground/70 mt-1 md:mt-0">
                       <Calendar className="h-4 w-4 mr-1" />
                       <span className="text-sm">{job.period}</span>
                     </div>
@@ -120,7 +121,7 @@ export default function TimelineSection() {
                     {job.company} • {job.location}
                   </div>
 
-                  <p className="text-muted-foreground mb-4">
+                  <p className="text-foreground/80 mb-4">
                     {job.description}
                   </p>
 
@@ -173,7 +174,7 @@ export default function TimelineSection() {
                     <h4 className="text-xl font-bold text-primary">
                       {edu.degree}
                     </h4>
-                    <div className="flex items-center text-muted-foreground mt-1 md:mt-0">
+                    <div className="flex items-center text-foreground/70 mt-1 md:mt-0">
                       <Calendar className="h-4 w-4 mr-1" />
                       <span className="text-sm">{edu.period}</span>
                     </div>
@@ -183,7 +184,7 @@ export default function TimelineSection() {
                     {edu.institution} • {edu.location}
                   </div>
 
-                  <p className="text-muted-foreground">{edu.description}</p>
+                  <p className="text-foreground/80">{edu.description}</p>
                 </div>
               </GlowCard>
             </div>
@@ -222,7 +223,7 @@ export default function TimelineSection() {
                       <h4 className="text-md font-bold text-primary">
                         {cert.title}
                       </h4>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-sm text-foreground/70">
                         Issued by: {cert.issuer}
                       </div>
                     </div>

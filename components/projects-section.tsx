@@ -25,6 +25,63 @@ import MouseParallax from "./mouse-parallax";
 const projects = [
   {
     id: 1,
+    title: "E-Bike Telemetry Platform",
+    description:
+      "Sistema fullstack de telemetría en tiempo real para e-bike con dashboard web interactivo, API REST con Express.js, frontend React, WebSockets para streaming de datos de sensores IoT. Incluye visualización de métricas, históricos y monitoreo de batería en vivo.",
+    detailedDescription:
+      "Plataforma completa de monitoreo y telemetría para e-bike desarrollada desde cero. El proyecto empezó como una conversión de bicicleta eléctrica y evolucionó hacia un desarrollo fullstack completo integrando IoT con web moderna. Implementé un backend en Node.js con Express para API REST de gestión de datos históricos y Socket.io para streaming en tiempo real de métricas de sensores (voltaje, corriente, velocidad, distancia). El frontend en React muestra un dashboard interactivo con gráficos en tiempo real usando Chart.js, visualización de autonomía restante, velocidad, temperatura y estado de batería. Desarrollé firmware en C++ para ESP32-C3 que lee datos de sensores (INA219 para corriente/voltaje, giroscopio MPU6050, GPS) y los envía vía WiFi al servidor. La arquitectura incluye Redis para caché de métricas de alta frecuencia y MongoDB para almacenamiento de históricos con agregaciones eficientes. El sistema permite tracking de rutas en mapa, análisis de patrones de uso, alertas configurables y exportación de datos. Todo deployado con Docker para facilitar el desarrollo y deployment.",
+    image: "/bike_hero.jpg",
+    images: [
+      "/bike_hero.jpg",
+      "/bike_charging.jpg",
+      "/bike_config.jpg",
+      "/bike_story.jpg",
+    ],
+    period: "12/2025 - 02/2026",
+    tags: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "Socket.io",
+      "WebSockets",
+      "TypeScript",
+      "IoT",
+      "MongoDB",
+      "Redis",
+      "Chart.js",
+      "Docker",
+      "ESP32",
+      "REST API",
+    ],
+    demoUrl: "https://bike.xaviergalarreta.pro/",
+    githubUrl: "https://github.com/BDKX16/ebike-telemetry",
+    features: [
+      "API REST con Express.js para gestión de datos históricos",
+      "WebSockets con Socket.io para streaming de métricas en tiempo real",
+      "Dashboard React con visualización de datos en vivo",
+      "Gráficos interactivos con Chart.js y Recharts",
+      "Sistema de autenticación JWT con refresh tokens",
+      "Tracking GPS con visualización de rutas en mapa",
+      "Redis para caché de métricas de alta frecuencia",
+      "MongoDB con agregaciones para análisis de datos históricos",
+      "Firmware C++ en ESP32 para lectura de sensores",
+      "Notificaciones push para alertas críticas (batería baja, temperatura)",
+      "Exportación de datos en CSV/JSON",
+      "Responsive design con Tailwind CSS",
+    ],
+    challenges: [
+      "Implementación de WebSockets para streaming de alta frecuencia sin degradar performance",
+      "Optimización de agregaciones en MongoDB para análisis de grandes volúmenes de datos",
+      "Manejo de reconexión automática y sincronización offline/online en frontend",
+      "Desarrollo de arquitectura escalable que soporte múltiples dispositivos simultáneos",
+      "Integración de firmware ESP32 con backend Node.js vía HTTP/WebSocket",
+      "Implementación de sistema de alertas en tiempo real con Socket.io",
+      "Optimización de rendering de gráficos en tiempo real en React",
+      "Deploy y orquestación con Docker Compose para desarrollo local",
+    ],
+  },
+  {
+    id: 2,
     title: "Casa Vacia",
     description:
       "Sitio web inmersivo para productora de cine de terror y fantasía, con efectos parallax en el hero section, sistema de partículas atmosféricas y sonido ambiental para crear una experiencia cinematográfica única.",
@@ -63,7 +120,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "CONFI",
     description:
       "IoT software for Microgreens Crop Automation, also adaptable for use in various industrial fields. Implemented MQTT for efficient device communication with a cloud platform featuring database integration and multiple frontends.",
@@ -108,7 +165,7 @@ const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Nota Importados",
     description:
       "E-commerce especializado en perfumes de lujo importados, desarrollado para empresa marplatense. Plataforma completa con catálogo avanzado, sistema de pagos y panel administrativo.",
@@ -147,7 +204,7 @@ const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "StudySphere",
     description:
       "Aplicación de escritorio de productividad con canvas interactivo y modo focus. Ventana flotante para tareas, interfaz estética e intuitiva, y sincronización automática offline-online.",
@@ -193,7 +250,7 @@ const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Luna BrewHouse",
     description:
       "Plataforma web completa para cervecería artesanal marplatense que incluye landing page y sistema de administración integral para gestión de ventas, inventario y recetas de cerveza.",
@@ -239,7 +296,7 @@ const projects = [
   },
 
   {
-    id: 6,
+    id: 7,
     title: "Fit Tracker",
     description:
       "A comprehensive fitness tracking application that allows users to log workouts, track progress, and set fitness goals. Built with a focus on user experience and performance.",
@@ -273,7 +330,7 @@ const projects = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     title: "MiniTwitter",
     description:
       "A microblogging platform for sharing short updates and multimedia content. Built with a focus on real-time interactions and a responsive design.",
@@ -313,7 +370,7 @@ const projects = [
     ],
   },
   {
-    id: 8,
+    id: 9,
     title: "IoT Control Mobile App",
     description:
       "Professional mobile application for IoT device management and monitoring through WebSockets. Leverages the architecture of the Confi Plant web platform, featuring customizable themes, real-time device control, and an integrated calendar for scheduling automation tasks.",
@@ -349,7 +406,7 @@ const projects = [
     ],
   },
   {
-    id: 9,
+    id: 10,
     title: "Content CRM",
     description:
       "Content management system for managing and distributing, and selling multimedia content. Built with React, TypeScript, and Tailwind CSS, it features a user-friendly interface and responsive design.",
@@ -382,7 +439,7 @@ const projects = [
     ],
   },
   {
-    id: 10,
+    id: 11,
     title: "Portfolio Website",
     description:
       "Personal portfolio website built with Next.js and Tailwind CSS showcasing my skills, experience, and projects with smooth animations and responsive design.",
@@ -504,11 +561,11 @@ export default function ProjectsSection() {
                     {project.title}
                   </h3>
                   {project.period && (
-                    <div className="text-sm text-muted-foreground mb-3">
+                    <div className="text-sm text-foreground/70 mb-3">
                       {project.period}
                     </div>
                   )}
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-foreground/80 mb-6">
                     {project.description}
                   </p>
 
@@ -742,7 +799,7 @@ export default function ProjectsSection() {
                       <h4 className="font-semibold text-primary mb-1 text-sm">
                         Project Period
                       </h4>
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-foreground/80 text-sm">
                         {selectedProject.period}
                       </p>
                     </div>
@@ -751,7 +808,7 @@ export default function ProjectsSection() {
                       <h4 className="font-semibold text-primary mb-2 text-sm">
                         Description
                       </h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <p className="text-foreground/80 text-sm leading-relaxed">
                         {selectedProject.detailedDescription}
                       </p>
                     </div>
@@ -783,7 +840,7 @@ export default function ProjectsSection() {
                         <h4 className="font-semibold text-primary mb-2 text-sm">
                           Key Features
                         </h4>
-                        <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm">
+                        <ul className="list-disc list-inside space-y-1 text-foreground/80 text-sm">
                           {selectedProject.features.map((feature, index) => (
                             <li key={index}>{feature}</li>
                           ))}
@@ -797,7 +854,7 @@ export default function ProjectsSection() {
                         <h4 className="font-semibold text-primary mb-2 text-sm">
                           Technical Challenges
                         </h4>
-                        <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm">
+                        <ul className="list-disc list-inside space-y-1 text-foreground/80 text-sm">
                           {selectedProject.challenges.map(
                             (challenge, index) => (
                               <li key={index}>{challenge}</li>
