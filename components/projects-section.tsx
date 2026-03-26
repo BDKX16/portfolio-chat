@@ -48,7 +48,6 @@ const projects = [
       "MongoDB",
       "Redis",
       "Chart.js",
-      "Docker",
       "ESP32-c3",
       "REST API",
     ],
